@@ -1,0 +1,27 @@
+{
+  "name": "Apex",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Apex": {
+        "$className": "Folder",
+        "MainModule": {
+          "$path": "Src",
+          "Packages": {
+            "$path": "Packages"
+          }
+        }
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Apex": {
+          "$className": "Folder",
+          "Example": {
+            "$path": "Example.client.luau"
+          }
+        }
+      }
+    }
+  }
+}
