@@ -1,0 +1,9 @@
+{
+  "name": "Apex",
+  "tree": {
+    "$path": "Src",
+    "Packages": {
+      "$path": "Packages"
+    }
+  }
+}
