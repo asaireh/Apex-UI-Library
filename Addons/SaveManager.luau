@@ -252,17 +252,17 @@ local SaveManager = {} do
 			local success, err = self:Load(name)
 			if not success then
 				return self.Library:Notify({
-					Title = "Interface",
-					Content = "Config loader",
-					SubContent = `Failed to load autoload config: {err}`,
+					Title = "APEX",
+					Content = "Config Loader",
+					SubContent = `Failed To Load Config: {err}`,
 					Duration = 7
 				})
 			end
 
 			return self.Library:Notify({
-				Title = "Interface",
-				Content = "Config loader",
-				SubContent = string.format("Auto loaded config %q", name),
+				Title = "APEX",
+				Content = "Config Loader",
+				SubContent = string.format("Loaded Config %q", name),
 				Duration = 7
 			})
 		end
@@ -285,9 +285,9 @@ local SaveManager = {} do
 
 				if name:gsub(" ", "") == "" then 
 					return self.Library:Notify({
-						Title = "Interface",
-						Content = "Config loader",
-						SubContent = "Invalid config name (empty)",
+						Title = "APEX",
+						Content = "Config Loader",
+						SubContent = "Invalid Config Name (empty)",
 						Duration = 7
 					})
 				end
@@ -295,16 +295,16 @@ local SaveManager = {} do
 				local success, err = self:Save(name)
 				if not success then
 					return self.Library:Notify({
-						Title = "Interface",
-						Content = "Config loader",
-						SubContent = "Failed to save config: " .. err,
+						Title = "APEX",
+						Content = "Config Loader",
+						SubContent = "Failed To Save Config: " .. err,
 						Duration = 7
 					})
 				end
 
 				self.Library:Notify({
-					Title = "Interface",
-					Content = "Config loader",
+					Title = "APEX",
+					Content = "Config Loader",
 					SubContent = string.format("Created config %q", name),
 					Duration = 7
 				})
@@ -322,16 +322,16 @@ local SaveManager = {} do
 			local success, err = self:Load(name)
 			if not success then
 				return self.Library:Notify({
-					Title = "Interface",
-					Content = "Config loader",
-					SubContent = "Failed to load config: " .. err,
+					Title = "APEX",
+					Content = "Config Loader",
+					SubContent = "Failed To Load Config: " .. err,
 					Duration = 7
 				})
 			end
 
 			return self.Library:Notify({
-				Title = "Interface",
-				Content = "Config loader",
+				Title = "APEX",
+				Content = "Config Loader",
 				SubContent = string.format("Loaded config %q", name),
 				Duration = 7
 			})
@@ -343,28 +343,28 @@ local SaveManager = {} do
 			local success, err = self:Save(name)
 			if not success then
 				return self.Library:Notify({
-					Title = "Interface",
+					Title = "APEX",
 					Content = "Config loader",
-					SubContent = "Failed to overwrite config: " .. err,
+					SubContent = "Failed To Overwrite Config: " .. err,
 					Duration = 7
 				})
 			end
 
 			return self.Library:Notify({
-				Title = "Interface",
-				Content = "Config loader",
+				Title = "APEX",
+				Content = "Config Loader",
 				SubContent = string.format("Overwrote config %q", name),
 				Duration = 7
 			})
 		end})
 
-		section:AddButton({Title = "Refresh list", Callback = function()
+		section:AddButton({Title = "Refresh List", Callback = function()
 			SaveManager.Options.SaveManager_ConfigList:SetValues(self:RefreshConfigList())
 			SaveManager.Options.SaveManager_ConfigList:SetValue(nil)
 		end})
 
 		local AutoloadButton
-		AutoloadButton = section:AddButton({Title = "Set as autoload", Description = "Current autoload config: none", Callback = function()
+		AutoloadButton = section:AddButton({Title = "Set As Autoload", Description = "Current Autoload Config: none", Callback = function()
 			local name = SaveManager.Options.SaveManager_ConfigList.Value
 			writefile(`{self.Folder}/settings/autoload.txt`, name)
 			AutoloadButton:SetDesc("Current autoload config: " .. name)
